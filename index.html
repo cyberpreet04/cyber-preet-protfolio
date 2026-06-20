@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Futuristic Cyberpunk Portfolio – Cybersecurity Enthusiast, Web Developer, Penetration Tester, Bug Hunter & Application Developer." />
+  <title>PREET | Cyberpunk Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" class="cursor"></div>
+  <div id="cursor-trail" class="cursor-trail"></div>
+
+  <!-- Mouse Trail -->
+  <div id="mouse-trail-container"></div>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="glitch-text" data-text="INITIALIZING">INITIALIZING</span>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+      <div class="loader-status" id="loader-status">Loading systems...</div>
+    </div>
+    <canvas id="loader-canvas"></canvas>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-logo">
+      <span class="glitch-text" data-text="PREET.EXE">CYBER-PREET</span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#hero" class="nav-link active" data-section="hero">
+        <span class="nav-icon">⬡</span><span data-en="Home" data-de="Start">Home</span>
+      </a>
+      <a href="#intro" class="nav-link" data-section="intro">
+        <span class="nav-icon">⬡</span><span data-en="About" data-de="Über mich">About</span>
+      </a>
+      <a href="#education" class="nav-link" data-section="education">
+        <span class="nav-icon">⬡</span><span data-en="Education" data-de="Bildung">Education</span>
+      </a>
+      <a href="#experience" class="nav-link" data-section="experience">
+        <span class="nav-icon">⬡</span><span data-en="Experience" data-de="Erfahrung">Experience</span>
+      </a>
+      <a href="#certificates" class="nav-link" data-section="certificates">
+        <span class="nav-icon">⬡</span><span data-en="Certs" data-de="Zertifikate">Certs</span>
+     
+    </div>
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="lang-toggle" id="lang-toggle" onclick="toggleLanguage()">
+      <span class="lang-flag" id="lang-flag">DE</span>
+      <span class="lang-text" id="lang-text">EN</span>
+    </div>
+    <div class="nav-indicator" id="nav-indicator"></div>
+  </nav>
+
+  <!-- ─── HERO SECTION ──────────────────────────────────────────── -->
+  <section id="hero" class="hero-section">
+    <canvas id="hero-canvas"></canvas>
+    <div class="matrix-rain" id="matrix-rain"></div>
+    <div class="scan-lines"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="tag-line"></span>
+        <span class="tag-text">SYSTEM ONLINE // v2.0.26</span>
+        <span class="tag-line"></span>
+      </div>
+
+      <h1 class="hero-name">
+        <span class="glitch-text" data-text="PREET">CYBER PREET</span>
+      </h1>
+
+      <div class="hero-roles">
+        <span class="role-prefix">&gt;&gt;&gt; </span>
+        <span id="typed-role" class="typed-role"></span>
+        <span class="cursor-blink">_</span>
+      </div>
+
+      <p class="hero-sub" data-en="Crafting digital frontiers at the intersection of security &amp; innovation." data-de="Digitale Grenzen an der Schnittstelle von Sicherheit &amp; Innovation gestalten.">Crafting digital frontiers at the intersection of security &amp; innovation.</p>
+
+      <div class="hero-buttons">
+        <a href="#intro" class="btn btn-primary" id="explore-btn">
+          <span class="btn-glow"></span>
+          <span class="btn-text" data-en="⚡ Explore Portfolio" data-de="⚡ Portfolio entdecken">⚡ Explore Portfolio</span>
+        </a>
+        <a href="#contact" class="btn btn-secondary" id="contact-btn">
+          <span class="btn-text" data-en="📡 Contact Me" data-de="📡 Kontaktieren Sie mich">📡 Contact Me</span>
+        </a>
+        <a href="resume.pdf" class="btn btn-ghost" id="resume-btn" download>
+          <span class="btn-text" data-en="⬇ Download CV" data-de="⬇ Lebenslauf herunterladen">⬇ Download CV</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="30">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Certs</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="3">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Years Exp</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span>
+          <span class="stat-label">Dedication</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-wheel"></div>
+      <span data-en="SCROLL DOWN" data-de="NACH UNTEN SCROLLEN">SCROLL DOWN</span>
+    </div>
+
+    <div class="hero-corner top-left"></div>
+    <div class="hero-corner top-right"></div>
+    <div class="hero-corner bottom-left"></div>
+    <div class="hero-corner bottom-right"></div>
+  </section>
+
+  <!-- ─── INTRODUCTION SECTION ─────────────────────────────────── -->
+  <section id="intro" class="section intro-section">
+    <div class="section-bg-particles" id="intro-particles"></div>
+    <div class="section-header reveal-up">
+      <span class="section-num">01</span>
+      <h2 class="section-title"><span data-en="About" data-de="Über">About</span> <span class="neon-text" data-en="Me" data-de="Mich">Me</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="intro-grid">
+      <!-- Avatar Card -->
+      <div class="intro-avatar-wrap reveal-left">
+        <div class="avatar-frame">
+          <div class="avatar-img-wrap">
+            <div class="avatar-placeholder">
+              <div class="avatar-scan"></div>
+              <span class="avatar-icon"> <img src="me.jpeg" ></span>
+              <div class="avatar-holo-lines"></div>
+            </div>
+          </div>
+          <div class="avatar-border-glow"></div>
+          <div class="avatar-corner tl"></div>
+          <div class="avatar-corner tr"></div>
+          <div class="avatar-corner bl"></div>
+          <div class="avatar-corner br"></div>
+        </div>
+        <div class="avatar-status">
+          <span class="status-dot"></span>
+          <span data-en="Available for hire" data-de="Verfügbar für Aufträge">Available for hire</span>
+        </div>
+      </div>
+
+      <!-- Info Block -->
+      <div class="intro-info reveal-right">
+        <div class="intro-typing-wrap">
+          <span class="intro-type-prefix">&gt; </span>
+          <span id="intro-typed" class="intro-typed"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+
+        <p class="intro-bio" data-en="I'm a passionate Cybersecurity Enthusiast and Full-Stack Developer who thrives on building secure, high-performance digital systems. From breaking things as a Penetration Tester to building them as a developer — I live at the edge of technology." data-de="Ich bin ein leidenschaftlicher Cybersicherheits-Enthusiast und Full-Stack-Entwickler, der davon lebt, sichere, leistungsstarke digitale Systeme aufzubauen. Vom Aufspüren von Schwachstellen als Penetrationstester bis hin zur Entwicklung als Programmierer — ich lebe an der Grenze der Technologie.">
+          I'm a passionate <span class="neon-text">Cybersecurity Enthusiast</span> and
+          <span class="neon-text purple">Bug Hunter</span> who thrives on building
+          secure, high-performance digital systems. From breaking things as a
+          <span class="neon-text cyan">Penetration Tester</span> to building them as a developer —
+          I live at the edge of technology.
+        </p>
+
+        <div class="intro-details-grid">
+          <div class="detail-item">
+            <span class="detail-icon">📍</span>
+            <span class="detail-label" data-en="Location" data-de="Standort">Location</span>
+            <span class="detail-val" data-en="India" data-de="Indien">India</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon">📧</span>
+            <span class="detail-label" data-en="Email" data-de="E-Mail">Email</span>
+            <span class="detail-val">preetshingala700@gmail.com</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon">💻</span>
+            <span class="detail-label" data-en="Specialty" data-de="Spezialität">Specialty</span>
+            <span class="detail-val" data-en="Cybersecurity & Dev" data-de="Cybersicherheit & Dev">Cybersecurity & Dev</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon">🎯</span>
+            <span class="detail-label" data-en="Focus" data-de="Fokus">Focus</span>
+            <span class="detail-val" data-en="Penetration Testing" data-de="Penetrationstests">Penetration Testing</span>
+          </div>
+        </div>
+
+        <div class="skills-wrap">
+          <h3 class="skills-title" data-en="// CORE SKILLS" data-de="// KERNKOMPETENZEN">// CORE SKILLS</h3>
+          <div class="skill-bars">
+            <div class="skill-item">
+              <div class="skill-top">
+                <span class="skill-name">Cybersecurity / PenTest</span>
+                <span class="skill-pct">92%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="92"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span class="skill-name">Security Auditing</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span class="skill-name">Bug Hunting / CTF</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span class="skill-name">Scanning</span>
+                <span class="skill-pct">80%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span class="skill-name">Network Security</span>
+                <span class="skill-pct">87%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-width="87"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Icons -->
+        <div class="tech-orbit-section">
+          <h3 class="skills-title" data-en="// TECH ARSENAL" data-de="// TECHNOLOGIE-ARSENAL">// TECH ARSENAL</h3>
+          <div class="tech-icons-grid">
+            <div class="tech-icon-chip" title="Kali Linux">🐉 Kali</div>
+            <div class="tech-icon-chip" title="Python">🐍 Python</div>
+            <div class="tech-icon-chip" title="JavaScript">⚡ JS</div>
+            <div class="tech-icon-chip" title="Burp Suite">🔥 Burp</div>
+            <div class="tech-icon-chip" title="Metasploit">💀 MSF</div>
+            <div class="tech-icon-chip" title="Docker">🐳 Docker</div>
+            <div class="tech-icon-chip" title="Linux">🐧 Linux</div>
+            <div class="tech-icon-chip" title="Wireshark">🦈 Wire</div>
+            <div class="tech-icon-chip" title="React">⚛ Nmap</div>
+            <div class="tech-icon-chip" title="Node.js">🟢 bug</div>
+            <div class="tech-icon-chip" title="AWS">☁ AWS</div>
+            <div class="tech-icon-chip" title="Git">📦 Git</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EDUCATION SECTION ─────────────────────────────────────── -->
+  <section id="education" class="section education-section">
+    <div class="section-bg-particles" id="edu-particles"></div>
+    <div class="section-header reveal-up">
+      <span class="section-num">02</span>
+      <h2 class="section-title"><span data-en="Edu" data-de="Bil">Edu</span><span class="neon-text" data-en="cation" data-de="dung">cation</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-line" id="timeline-line-edu"></div>
+
+      <div class="timeline-item reveal-timeline">
+        <div class="timeline-dot">
+          <div class="dot-inner"></div>
+          <div class="dot-ring"></div>
+        </div>
+        <div class="timeline-card glass-card">
+          <div class="card-header">
+            <div class="card-icon-box">🎓</div>
+            <div class="card-header-info">
+              <h3 class="card-title">Bachelor of Computer Application</h3>
+              <span class="card-subtitle">Computer Science </span>
+            </div>
+            <div class="card-year">2023 – 2026</div>
+          </div>
+          <div class="card-body">
+            <p class="card-institution">🏛 VNSGU University • India</p>
+            <p class="card-desc">Specialization in Cybersecurity and Network Engineering. Active in CTF competitions, security research, and open-source development.</p>
+            <div class="card-badges">
+              <span class="badge">CGPA: 7.50</span>
+              <span class="badge">LINUX , CRYPTOGRAPHY , NETWORKING , JAVA , PYTHON</span>
+              <span class="badge">CRE</span>
+            </div>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-timeline">
+        <div class="timeline-dot">
+          <div class="dot-inner"></div>
+          <div class="dot-ring"></div>
+        </div>
+        <div class="timeline-card glass-card">
+          <div class="card-header">
+            <div class="card-icon-box">📚</div>
+            <div class="card-header-info">
+              <h3 class="card-title">Higher Secondary Certificate</h3>
+              <span class="card-subtitle">Commerce Stream – Business Administartion , Statistic , Account</span>
+            </div>
+            <div class="card-year">2022 – 2023</div>
+          </div>
+          <div class="card-body">
+            <p class="card-institution">🏫 Subhlaxmi high School • India</p>
+            <p class="card-desc">Graduated with distinction. Led the school's tech club.</p>
+            <div class="card-badges">
+              <span class="badge">82%</span>
+              <span class="badge">Tech Club Lead</span>
+              <span class="badge">Distinction</span>
+            </div>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-timeline">
+        <div class="timeline-dot">
+          <div class="dot-inner"></div>
+          <div class="dot-ring"></div>
+        </div>
+        <div class="timeline-card glass-card">
+          <div class="card-header">
+            <div class="card-icon-box">🏫</div>
+            <div class="card-header-info">
+              <h3 class="card-title">Secondary School Certificate</h3>
+              <span class="card-subtitle">Science , Mathematics , Social Science</span>
+            </div>
+            <div class="card-year">2020 – 2021</div>
+          </div>
+          <div class="card-body">
+            <p class="card-institution">🏫 Subhlaxmi high School • India</p>
+            <p class="card-desc">Achieved top rank in Computer . First exposure to programming — wrote first program at age 15.</p>
+            <div class="card-badges">
+              <span class="badge">84%</span>
+              <span class="badge">Top 5 Rank</span>
+              <span class="badge">Math Olympiad</span>
+            </div>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE SECTION ────────────────────────────────────── -->
+  <section id="experience" class="section experience-section">
+    <div class="cyber-bg-grid"></div>
+    <div class="section-header reveal-up">
+      <span class="section-num">03</span>
+      <h2 class="section-title"><span data-en="Experi" data-de="Erfahr">Experi</span><span class="neon-text cyan" data-en="ence" data-de="ung">ence</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="exp-counter-row reveal-up">
+      <div class="exp-counter-card">
+        <span class="exp-count" data-target="1">0</span>
+        <span class="exp-count-label" data-en="Years Experience" data-de="Jahre Erfahrung">Years Experience</span>
+      </div>
+      <div class="exp-counter-card">
+        <span class="exp-count" data-target="12">0</span>
+        <span class="exp-count-label" data-en="Clients Served" data-de="Bediente Kunden">Clients Served</span>
+      </div>
+      <div class="exp-counter-card">
+        <span class="exp-count" data-target="15">0</span>
+        <span class="exp-count-label" data-en="Projects Done" data-de="Projekte erledigt">Projects Done</span>
+      </div>
+      <div class="exp-counter-card">
+        <span class="exp-count" data-target="100">0</span>
+        <span class="exp-count-label" data-en="Bugs Squashed" data-de="Behobene Bugs">Bugs Squashed</span>
+      </div>
+    </div>
+
+    <div class="exp-timeline">
+      <div class="timeline-line" id="timeline-line-exp"></div>
+
+      <div class="exp-item reveal-timeline">
+        <div class="timeline-dot">
+          <div class="dot-inner"></div>
+          <div class="dot-ring"></div>
+        </div>
+        <div class="exp-card glass-card tilt-card">
+          <div class="exp-card-top">
+            <div class="exp-role-wrap">
+              <span class="exp-icon">🔐</span>
+              <div>
+                <h3 class="exp-role">Cyber Security Consultant and Server Administration</h3>
+                <span class="exp-company">Foxscode Infotech</span>
+              </div>
+            </div>
+            <div class="exp-meta">
+              <span class="exp-duration">may 2025 – April 2026</span>
+              <span class="exp-type full-time">Full-Time</span>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Conducted internal/external network penetration tests for 10+ enterprise clients</li>
+            <li>Identified 50+ critical vulnerabilities; documented detailed remediation plans</li>
+            <li>Performed web application assessments using OWASP Top 10 methodologies</li>
+            <li>Built custom exploit scripts in Python for privilege escalation scenarios</li>
+          </ul>
+          <div class="skill-chips">
+            <span class="skill-chip">Metasploit</span>
+            <span class="skill-chip">Burp Suite</span>
+            <span class="skill-chip">OWASP</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Nmap</span>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+      </div>
+
+
+      <div class="exp-item reveal-timeline">
+        <div class="timeline-dot">
+          <div class="dot-inner"></div>
+          <div class="dot-ring"></div>
+        </div>
+        <div class="exp-card glass-card tilt-card">
+          <div class="exp-card-top">
+            <div class="exp-role-wrap">
+              <span class="exp-icon">🐛</span>
+              <div>
+                <h3 class="exp-role">Bug Bounty Hunter</h3>
+                <span class="exp-company">Freelancer work</span>
+              </div>
+            </div>
+            <div class="exp-meta">
+              <span class="exp-duration">2025 – Present</span>
+              <span class="exp-type remote">Remote</span>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Reported 30+ valid vulnerabilities across Fortune-500 programs</li>
+            <li>P1/Critical bugs discovered in payment gateways and auth systems</li>
+            <li>Earned $5,000+ in bug bounty rewards</li>
+            <li>Top 300 on HackerOne global leaderboard</li>
+          </ul>
+          <div class="skill-chips">
+            <span class="skill-chip">XSS</span>
+            <span class="skill-chip">SQLi</span>
+            <span class="skill-chip">SSRF</span>
+            <span class="skill-chip">IDOR</span>
+            <span class="skill-chip">Recon</span>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CERTIFICATES SECTION ──────────────────────────────────── -->
+  <section id="certificates" class="section certs-section">
+    <div class="section-bg-particles" id="cert-particles"></div>
+    <div class="section-header reveal-up">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Certi<span class="neon-text purple">ficates</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="certs-carousel-wrap">
+      <div class="certs-grid" id="certs-grid">
+
+        <div class="cert-card glass-card reveal-up" onclick="openCertModal(0)">
+          <div class="cert-card-inner">
+            <div class="cert-icon">🔐</div>
+            <div class="cert-info">
+              <h3 class="cert-name" data-en="AICEH-PT" data-de="AICEH-PT"> [AICEH-PT]</h3>
+              <span class="cert-issuer">JJSA-NEW DELHI</span>
+              <span class="cert-year">2026</span>
+            </div>
+            <div class="cert-badge" data-en="VERIFIED" data-de="VERIFIZIERT">VERIFIED</div>
+          </div>
+          <img src="AICEH.jpeg" alt="Certificate Preview" class="cert-preview-img" id="modal-cert-img">
+          <div class="cert-hover-glow"></div>
+          <div class="card-glow-border"></div>
+        </div>
+
+        <div class="cert-card glass-card reveal-up" onclick="openCertModal(1)">
+          <div class="cert-card-inner">
+            <div class="cert-icon">💀</div>
+            <div class="cert-info">
+              <h3 class="cert-name" data-en="CCEP" data-de="CCEP">CERTIFIED CYBERSECURITY EDUCATOR PROFESSIONAL</h3>
+              <span class="cert-issuer">RED TEAM</span>
+              <span class="cert-year">2025</span>
+            </div>
+            <div class="cert-badge" data-en="VERIFIED" data-de="VERIFIZIERT">VERIFIED</div>
+          </div>
+         <img src="ccep.png" alt="Certificate Preview" class="cert-preview-img" id="modal-cert-img">
+          <div class="cert-hover-glow"></div>
+          <div class="card-glow-border"></div>
+        </div>
+
+        <div class="cert-card glass-card reveal-up" onclick="openCertModal(2)">
+          <div class="cert-card-inner">
+            <div class="cert-icon">☁</div>
+            <div class="cert-info">
+              <h3 class="cert-name" data-en="CSACP" data-de="CSACP">CYBERSECURITY ASSOCIATE CERTIFIED PROGRAM[CSACP]</h3>
+              <span class="cert-issuer">RELIANCE FOUNDATION</span>
+              <span class="cert-year">2024</span>
+            </div>
+            <div class="cert-badge" data-en="VERIFIED" data-de="VERIFIZIERT">VERIFIED</div>
+          </div>
+          <img src="RELI.png" alt="Certificate Preview" class="cert-preview-img" id="modal-cert-img">
+          <div class="cert-hover-glow"></div>
+          <div class="card-glow-border"></div>
+        </div>
+
+        <div class="cert-card glass-card reveal-up" onclick="openCertModal(3)">
+          <div class="cert-card-inner">
+            <div class="cert-icon">🛡</div>
+            <div class="cert-info">
+              <h3 class="cert-name" data-en="ETHICAL HACKER" data-de="ETHICAL HACKER">ETHICAL - HACKER</h3>
+              <span class="cert-issuer">CISCO</span>
+              <span class="cert-year">2025</span>
+            </div>
+            <div class="cert-badge" data-en="VERIFIED" data-de="VERIFIZIERT">VERIFIED</div>
+          </div>
+          <img src="CISCO.png" alt="Certificate Preview" class="cert-preview-img" id="modal-cert-img">
+          <div class="cert-hover-glow"></div>
+          <div class="card-glow-border"></div>
+        </div>
+
+        <div class="cert-card glass-card reveal-up" onclick="openCertModal(4)">
+          <div class="cert-card-inner">
+            <div class="cert-icon">🕷</div>
+            <div class="cert-info">
+              <h3 class="cert-name" data-en="CYBER SECURITY" data-de="CYBER SECURITY">CYBER SECURITY</h3>
+              <span class="cert-issuer">SKILL INDIA , TECH MAHINDRA</span>
+              <span class="cert-year">2024</span>
+            </div>
+            <div class="cert-badge" data-en="VERIFIED" data-de="VERIFIZIERT">VERIFIED</div>
+          </div>
+         <img src="TECHM.png" alt="Certificate Preview" class="cert-preview-img" id="modal-cert-img">
+          <div class="cert-hover-glow"></div>
+          <div class="card-glow-border"></div>
+        </div>
+
+        <div class="cert-card glass-card reveal-up" onclick="openCertModal(5)">
+          <div class="cert-card-inner">
+            <div class="cert-icon">🐍</div>
+            <div class="cert-info">
+              <h3 class="cert-name" data-en="ICA" data-de="ICA">INTRODUCTION TO CYBERSECURITY AWARENESS[ICA]</h3>
+              <span class="cert-issuer">HP LIFE</span>
+              <span class="cert-year">2024</span>
+            </div>
+            <div class="cert-badge" data-en="VERIFIED" data-de="VERIFIZIERT">VERIFIED</div>
+          </div>
+         <img src="HPLIFE.png" alt="Certificate Preview" class="cert-preview-img" id="modal-cert-img">
+          <div class="cert-hover-glow"></div>
+          <div class="card-glow-border"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificate Modal -->
+  <div id="cert-modal" class="cert-modal" onclick="closeCertModal(event)">
+    <div class="cert-modal-inner glass-card">
+      <button class="cert-modal-close" onclick="closeCertModal()">✕</button>
+      <div class="cert-modal-icon" id="modal-icon">🔐</div>
+      <h2 class="cert-modal-title" id="modal-title">Certificate</h2>
+      <p class="cert-modal-issuer" id="modal-issuer">Issuer</p>
+      <p class="cert-modal-year" id="modal-year">Year</p>
+      <div class="cert-modal-preview">
+        <div class="cert-glow-border-wrap">
+          <iframe id="modal-cert-iframe" src="" class="cert-modal-iframe hidden" style="width: 100%; height: 60vh; border: none; border-radius: 8px; background: white;"></iframe>
+          <div class="cert-preview-placeholder" id="modal-cert-placeholder">
+            <div class="cert-scan-anim"></div>
+            <span data-en="CERTIFICATE VERIFIED ✓" data-de="ZERTIFIKAT VERIFIZIERT ✓">CERTIFICATE VERIFIED ✓</span>
+          </div>
+          <div class="card-glow-border" style="opacity: 1;"></div>
+        </div>
+      </div>
+      <div class="card-glow-border"></div>
+    </div>
+  </div>
+
+  
+  <!-- ─── CONTACT / FOOTER ──────────────────────────────────────── -->
+  <section id="contact" class="contact-section">
+    <div class="cyber-bg-grid"></div>
+    <div class="section-header reveal-up">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Get In <span class="neon-text cyan">Touch</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-content reveal-up">
+      <p class="contact-sub">Ready to hack the future together? Let's connect.</p>
+      <div class="contact-links">
+        <a href="mailto:preet@cyber.dev" class="contact-link" id="contact-email">
+          <span class="contact-link-icon">📧</span>
+          <span>preet@cyber.dev</span>
+        </a>
+        <a href="https://github.com" target="_blank" class="contact-link" id="contact-github">
+          <span class="contact-link-icon">🐙</span>
+          <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="contact-link" id="contact-linkedin">
+          <span class="contact-link-icon">💼</span>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="contact-link" id="contact-twitter">
+          <span class="contact-link-icon">🐦</span>
+          <span>Twitter</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">PREET.EXE</div>
+      <p class="footer-tag">// Built with ❤ + 🔐 | Stay Ethical, Hunt Bugs</p>
+      <p class="footer-copy">© 2026 PREET | All Rights Reserved</p>
+      <div class="footer-glow-line"></div>
+    </div>
+    <!-- Easter Egg Easter Egg -->
+    <div id="easter-egg" class="easter-egg hidden">
+      <div class="egg-content">
+        <span class="glitch-text" data-text="YOU FOUND IT!">YOU FOUND IT!</span>
+        <p>🎉 Secret: The cake is a lie. But the bugs are real. 🐛</p>
+        <button onclick="closeEgg()">Close</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Easter egg trigger -->
+  <div id="konami-hint" class="konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
